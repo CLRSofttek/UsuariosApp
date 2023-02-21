@@ -1,0 +1,54 @@
+      <div class="modal-header">
+        <h4 class="modal-title">{{user?.name}}</h4>
+      </div>
+      <div class="modal-body">
+          <div class="row">
+            <div class="col-3">
+              <h6>Username</h6>
+            </div>
+            <div class="col">
+              <p>{{user?.username}}</p>
+            </div>
+          </div>
+            <div class="row">
+            <div class="col-3">
+              <h6>Email</h6>
+            </div>
+            <div class="col">
+              <p>{{user?.email}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3">
+              <h6>Address</h6>
+            </div>
+            <div class="col">
+              <p>{{user?.address | address}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3">
+              <h6>Phone</h6>
+            </div>
+            <div class="col">
+              <p>{{user?.phone}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3">
+              <h6>Website</h6>
+            </div>
+            <div class="col">
+              <p>{{user?.website}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3">
+              <h6>Company</h6>
+            </div>
+            <div class="col">
+              <p>{{user?.company?.name}}</p>
+            </div>
+          </div>
+          </div>
+

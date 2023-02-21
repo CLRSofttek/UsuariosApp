@@ -25,3 +25,13 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Requirements
+
+-	Crear un proyecto Angular versión (12, 13 o 14).
+-	Crear un menú de navegación con dos opciones: home y usuarios. Implemente Lazy loading donde el menú home llamará al módulo home (y su respectivo componente principal del módulo). El menú usuarios cargará el módulo usuario (con su respectivo componente principal usuarios).
+-	Considere mostrar en el módulo home la fecha del día. Asociado a esto, implemente un pipe personalizado, mostrando la fecha del día cómo sigue: Julio de 2022
+-	Consumir desde el módulo usuario, la lista de usuarios expuesta en la API REST, mostrando la información del usuario en una tabla. Considera mostrar la siguiente información del usuario: name, email, city, phone.
+-	De preferencia usar algún framework css o estilos css para mostrar la información al usuario.
+-	Subir el código a un repositorio github y enviar la rama para poder visualizar el proyecto terminado.
+

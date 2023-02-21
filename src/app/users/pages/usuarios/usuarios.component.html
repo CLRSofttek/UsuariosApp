@@ -1,0 +1,36 @@
+<h1>Usuarios</h1>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Nombre</th>
+      <th scope="col">Email</th>
+      <th scope="col">Ciudad</th>
+      <th scope="col">Teléfono</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users"  (click)="selectId(user.id)">
+      <td>{{user.name}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.address.city}}</td>
+      <td>{{user.phone}}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+<!-- Modal -->
+<div *ngIf="selectedUser" class="modal" style="display: block;" >
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <app-user-card [user]="selectedUser"></app-user-card>
+      <div class="modal-footer">
+        <button type="button" (click)="selectedUser = undefined" class="btn btn-secondary" >Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
