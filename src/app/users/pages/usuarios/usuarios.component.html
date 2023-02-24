@@ -1,36 +1,106 @@
 <h1>Usuarios</h1>
+
+<!-- search -->
+
 <table class="table table-hover">
   <thead>
     <tr>
-      <th scope="col">Nombre</th>
-      <th scope="col">Email</th>
-      <th scope="col">Ciudad</th>
-      <th scope="col">Teléfono</th>
+      <th scope="col">
+        Nombre
+        <button
+          class="btn float-end"
+          [class.active]="sortedBy === 'nombre'"
+          (click)="toggleSort('nombre')"      >
+          <i class="bi bi-sort-alpha-down"></i>
+        </button>
+        <app-user-input
+
+          [nombre]="'nombre'"
+          (onEnter)="buscar($event, nameInput)"
+          (onDebounce)="buscar($event, nameInput)"
+          (click)="reset(nameInput)"
+
+          #nameInput
+        ></app-user-input>
+      </th>
+      <th scope="col">
+        Email
+        <button
+          class="btn float-end"
+          [class.active]="sortedBy === 'email'"
+          (click)="toggleSort('email')"
+        >
+          <i class="bi bi-sort-alpha-down"></i>
+        </button>
+        <app-user-input
+            #emailInput
+            [nombre]="'email'"
+            (onEnter)="buscar($event, emailInput)"
+            (onDebounce)="buscar($event, emailInput)"
+            (click)="reset(emailInput)"
+            >
+        </app-user-input>
+      </th>
+      <th scope="col">
+        Ciudad
+        <button
+          class="btn float-end"
+          [class.active]="sortedBy === 'ciudad'"
+          (click)="toggleSort('ciudad')"
+        >
+          <i class="bi bi-sort-alpha-down"></i>
+        </button>
+        <app-user-input
+        #ciudadInput
+        [nombre]="'ciudad'"
+        (onEnter)="buscar($event, ciudadInput)"
+        (onDebounce)="buscar($event, ciudadInput)"
+        (click)="reset(ciudadInput)"
+        ></app-user-input>
+      </th>
+      <th scope="col">
+        Teléfono
+        <button
+        class="btn float-end"
+        [class.active]="sortedBy === 'teléfono'"
+        (click)="toggleSort('teléfono')"
+        >
+        <i class="bi bi-sort-alpha-down"></i>
+    </button>
+    <app-user-input
+        #phoneInput
+        [nombre]="'teléfono'"
+        (onEnter)="buscar($event, phoneInput)"
+        (onDebounce)="buscar($event, phoneInput)"
+        (click)="reset(phoneInput)"
+        ></app-user-input>
+      </th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let user of users"  (click)="selectId(user.id)">
-      <td>{{user.name}}</td>
-      <td>{{user.email}}</td>
-      <td>{{user.address.city}}</td>
-      <td>{{user.phone}}</td>
+    <tr *ngFor="let user of users" (click)="selectId(user.id)">
+      <td>{{ user.name }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.address.city }}</td>
+      <td>{{ user.phone }}</td>
     </tr>
   </tbody>
 </table>
 
-
-
 <!-- Modal -->
-<div *ngIf="selectedUser" class="modal" style="display: block;" >
+<div *ngIf="selectedUser" class="modal" style="display: block">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <app-user-card [user]="selectedUser"></app-user-card>
       <div class="modal-footer">
-        <button type="button" (click)="selectedUser = undefined" class="btn btn-secondary" >Close</button>
+        <button
+          type="button"
+          (click)="selectedUser = undefined"
+          class="btn btn-secondary"
+        >
+          Close
+        </button>
       </div>
     </div>
   </div>
 </div>
-
-
-
